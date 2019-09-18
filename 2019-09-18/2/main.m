@@ -1,5 +1,5 @@
 clear
-for c = 2:3
+for c = 1:3
     B0 = 1e2;
     prop = @pipette;
     num_cycles = 1e3;
