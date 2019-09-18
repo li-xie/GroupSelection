@@ -1,5 +1,5 @@
 c = 1;
-B0 = 1e1;
+B0 = 1e2;
 prop_name = @pipette;
 num_cycles = 1e3;
 num_wells = 100;
