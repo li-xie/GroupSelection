@@ -8,7 +8,7 @@ nbins_b = 10.^dFP_dL(2);
 lossy_fp = round(nbins_fp * fp) / nbins_fp;
 lossy_b = round(nbins_b * b) / nbins_b;
 FLN = sortrows([lossy_fp,lossy_b,n],[1,2]);
-for i = 2 : length(FLN)
+for i = 2 : size(FLN, 1)%length(FLN)
     if isequal(FLN(i,1:2),FLN(i-1,1:2))
         FLN(i,3) = FLN(i,3) + FLN(i-1,3);
         FLN(i-1,3) = 0;
