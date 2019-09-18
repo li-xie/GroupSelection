@@ -1,6 +1,6 @@
 clear
-for c = 2:3
-    B0 = 1e2;
+for c = 1:3
+    B0 = 1e1;
     prop = @pipette;
     num_cycles = 1e3;
     num_wells = 100;
