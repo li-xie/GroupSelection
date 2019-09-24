@@ -29,7 +29,7 @@ for tstep = 1 : gc.nsteps
     n = n - fastbinorv(n, gc.d_M * gc.dt);  %round(N_manu * gc.d_M * gc.dt);
     % mutation
     [fp, b, n, n_genos_curr] = mutation(fp, b, n, n_genos_curr, pot_mut_index,...
-        gc.p_mut, gc.sp0, gc.sn0, gc.g, gc.fp_max);
+        gc.p_mut, gc.sp0, gc.sn0, gc.fp_min, gc.fp_max);
     % update biomass
     B(tstep + 1) = b' * n;
 end
