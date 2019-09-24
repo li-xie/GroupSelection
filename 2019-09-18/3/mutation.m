@@ -1,6 +1,6 @@
 function [fp, b, n, n_genos_curr] =...
     mutation(fp, b, n, n_genos_curr, pot_mut_index,...
-    p_mut, sp0, sn0, g, fp_max)
+    p_mut, sp0, sn0, fp_min, fp_max)
 % generate vector of mutant cell numbers
 if sum(n(pot_mut_index)) > 0
     N_mut = fastbinorv(n(pot_mut_index),p_mut);
@@ -44,7 +44,7 @@ if sum(n(pot_mut_index)) > 0
         end
         N_back = ones(length(fp_back),1);
         % update fp_manu, L_manu, N_manu, and n_genos_curr
-        params = [sp0, sn0, g, fp_max];
+        params = [sp0, sn0, fp_min, fp_max];
         fp(n_genos_curr + 1 : n_genos_curr + length(fp_back)) = mut_spec_add(params,fp_back);
         b(n_genos_curr + 1 : n_genos_curr + length(fp_back)) = b_back;
         n(n_genos_curr + 1 : n_genos_curr + length(fp_back)) = N_back;
