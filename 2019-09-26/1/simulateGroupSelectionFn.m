@@ -47,32 +47,35 @@ end
 time = 0 : gc.dt : cycle_exponent;
 rng('shuffle');
 seeds = randi(2^32-1,[num_cycles,1],'uint32');
-
+load('nb401')
+newb_pnum = pnum;
+% when starting from Newborn taken from simulation, the ic_ variables are
+% no longer relavent, I kept it to avoid modifying save_run_conditions
 ic_fp = [0.13;zeros(100 - 1,1)]; % initial distribution of fp
 ic_b = [1;zeros(100 - 1,1)]; % initial distribution of individual biomass 
 ic_n = [B0 ;zeros(100 - 1,1)]; % initial number of cells
 ic_n_genos = 1; % initial number of genotype
 % B0 = gc.B0; % B_target
+len_fp_init = 100; %length(ic_fp);
+
 % save simulation conditions 
 save_run_conditions(cycle_exponent, num_cycles, num_wells,...
     cw_params, gc, time, ic_fp, ic_b, ic_n,...
     ic_n_genos, resultsfolder, seeds); 
 
-newb_fp = cell(num_wells, 1); % list of fp within each Newborn
-newb_b = cell(num_wells, 1); % list of biomass within each Newborn
-newb_n = cell(num_wells, 1); % corresponding to each fp and biomass, integer number of cells.
-newb_n_genos = cell(num_wells, 1); % length of the list
-newb_pnum = zeros(num_wells, 1); % parent number
+% newb_fp = cell(num_wells, 1); % list of fp within each Newborn
+% newb_b = cell(num_wells, 1); % list of biomass within each Newborn
+% newb_n = cell(num_wells, 1); % corresponding to each fp and biomass, integer number of cells.
+% newb_n_genos = cell(num_wells, 1); % length of the list
+% newb_pnum = zeros(num_wells, 1); % parent number
 
-% initialize the simulation with identical groups
-for i = 1 : num_wells
-    newb_fp{i} = ic_fp;
-    newb_b{i} = ic_b;
-    newb_n{i} = ic_n;
-    newb_n_genos{i} = ic_n_genos;
-end
-
-len_fp_init = length(ic_fp);
+% % initialize the simulation with identical groups
+% for i = 1 : num_wells
+%     newb_fp{i} = ic_fp;
+%     newb_b{i} = ic_b;
+%     newb_n{i} = ic_n;
+%     newb_n_genos{i} = ic_n_genos;
+% end
 
 % data for all the wells on a Plate within one cycle
 wellPlate_fp = cell(num_wells, 1);
