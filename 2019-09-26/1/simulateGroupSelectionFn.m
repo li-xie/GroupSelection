@@ -49,6 +49,11 @@ rng('shuffle');
 seeds = randi(2^32-1,[num_cycles,1],'uint32');
 load('nb401')
 newb_pnum = pnum;
+% add 0.03 to fp
+for i = 1 : num_wells
+    newb_fp{i} = newb_fp{i}+0.03;
+end
+
 % when starting from Newborn taken from simulation, the ic_ variables are
 % no longer relavent, I kept it to avoid modifying save_run_conditions
 ic_fp = [0.13;zeros(100 - 1,1)]; % initial distribution of fp
