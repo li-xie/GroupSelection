@@ -36,8 +36,8 @@ gc.b_Mmax = 1; % max birth rate
 gc.d_M = 5e-3;
 gc.p_mut = mu; % mutation rate, probability per cell per division
 % gc.frac_null = 0.5;
-gc.sp0 = 1e-3; % parameter for the mutation spectrum
-gc.sn0 = 1e-3; % parameter for the mutation spectrum
+gc.sp0 = 5e-3; % parameter for the mutation spectrum
+gc.sn0 = 5e-3; % parameter for the mutation spectrum
 gc.fp_min = 0;
 gc.fp_max = 1; % upper bound of fp
 gc.B0 = B0; %B_target
@@ -98,10 +98,10 @@ for gen = 1 : num_cycles
         end
     end
     scurr = rng;
-    % save all the Adults
-    savePlate(wellPlate_fp, wellPlate_b, wellPlate_n,...
-         wellPlate_B, wellPlate_P, wellPlate_n_genos,...
-         gen, resultsfolder, cw_params, scurr);
+%     % save all the Adults
+%     savePlate(wellPlate_fp, wellPlate_b, wellPlate_n,...
+%          wellPlate_B, wellPlate_P, wellPlate_n_genos,...
+%          gen, resultsfolder, cw_params, scurr);
     
     P_final = zeros(num_wells, 1);
     B_final = zeros(num_wells, 1);
