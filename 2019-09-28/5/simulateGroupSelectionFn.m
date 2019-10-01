@@ -47,7 +47,7 @@ end
 time = 0 : gc.dt : cycle_exponent;
 rng('shuffle');
 seeds = randi(2^32-1,[num_cycles,1],'uint32');
-load('nb21')
+load('nb11')
 newb_pnum = pnum;
 % % add 0.01 to fp
 % for i = 1 : num_wells
