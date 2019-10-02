@@ -47,12 +47,12 @@ end
 time = 0 : gc.dt : cycle_exponent;
 rng('shuffle');
 seeds = randi(2^32-1,[num_cycles,1],'uint32');
-load('nb51')
+load('nb21')
 newb_pnum = pnum;
-% add 0.03 to fp
-for i = 1 : num_wells
-    newb_fp{i} = newb_fp{i}+0.01;
-end
+% % add 0.03 to fp
+% for i = 1 : num_wells
+%     newb_fp{i} = newb_fp{i}+0.01;
+% end
 
 % when starting from Newborn taken from simulation, the ic_ variables are
 % no longer relavent, I kept it to avoid modifying save_run_conditions
