@@ -118,8 +118,8 @@ for gen = 1 : num_cycles
         B_final(i) = wellPlate_B{i}(end);
     end
 %     [~, P_ind] = sort(P_final,'descend');
-    P_ind = randperm(num_wells);
-    B_sorted = B_final(P_ind);
+    P_ind = (1:num_wells)';
+    B_sorted = B_final;
     % reproduce strategy: 
     % 0: top-dog
     % nonzero interger S: select the top m, each reproduce N/S
