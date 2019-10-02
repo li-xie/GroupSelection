@@ -106,10 +106,10 @@ for gen = 1 : num_cycles
         end
     end
     scurr = rng;
-    % save all the Adults
-    savePlate(wellPlate_fp, wellPlate_b, wellPlate_n,...
-         wellPlate_B, wellPlate_P, wellPlate_n_genos,...
-         gen, resultsfolder, cw_params, scurr);
+%     % save all the Adults
+%     savePlate(wellPlate_fp, wellPlate_b, wellPlate_n,...
+%          wellPlate_B, wellPlate_P, wellPlate_n_genos,...
+%          gen, resultsfolder, cw_params, scurr);
     
     P_final = zeros(num_wells, 1);
     B_final = zeros(num_wells, 1);
@@ -117,7 +117,8 @@ for gen = 1 : num_cycles
         P_final(i) = wellPlate_P{i}(end);
         B_final(i) = wellPlate_B{i}(end);
     end
-    [~, P_ind] = sort(P_final,'descend');
+%     [~, P_ind] = sort(P_final,'descend');
+    P_ind = randperm(num_wells);
     B_sorted = B_final(P_ind);
     % reproduce strategy: 
     % 0: top-dog
