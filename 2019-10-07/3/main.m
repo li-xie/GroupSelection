@@ -6,7 +6,7 @@ for c = 1:3
     num_wells = 100;
     mu = 10^-3;
     label = num2str(c);
-    S = 50;
+    S = 75;
    
     simulateGroupSelectionFn(B0,prop,S,num_cycles,...
         num_wells,mu,label)
