@@ -122,7 +122,7 @@ for gen = 1 : num_cycles
     % reproduce strategy: 
     % 0: top-dog
     % nonzero interger S: select the top m, each reproduce N/S
-    rep_profile = ReproduceStrategy(num_wells, B_sorted, B0, S);
+    rep_profile = ReproduceStrategy75(num_wells, B_sorted, B0, S);
     % Sp: the actual number of Adults that reproduced.
     Sp = nnz(rep_profile);
     winner_fp = cell(Sp, 1);
