@@ -168,7 +168,7 @@ for gen = 1 : num_cycles
     saveWinnerNb(winnernb_fp, winnernb_b, winnernb_n,...
         winnernb_n_genos, winnernb_pnum, gen, resultsfolder);
     
-    save_newborns(newb_fp,newb_b,newb_n,...
-        newb_n_genos,newb_pnum, gen, resultsfolder);
+%     save_newborns(newb_fp,newb_b,newb_n,...
+%         newb_n_genos,newb_pnum, gen, resultsfolder);
 end
 end
