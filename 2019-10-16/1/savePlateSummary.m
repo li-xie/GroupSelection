@@ -24,14 +24,14 @@ if cw_params(1)
     end
 end
 
-wellPlate.fp_mean = fp_mean;
-wellPlate.fp_var = fp_var;
-wellPlate.B = B;
-wellPlate.P = P;
-wellPlate.n_genos = wellPlate_n_genos;
-wellPlate.gen = gen;
-wellPlate.DT = datetime;
-wellPlate.scurr = scurr;
+wellPlateSum.fp_mean = fp_mean;
+wellPlateSum.fp_var = fp_var;
+wellPlateSum.B = B;
+wellPlateSum.P = P;
+wellPlateSum.n_genos = wellPlate_n_genos;
+wellPlateSum.gen = gen;
+wellPlateSum.DT = datetime;
+wellPlateSum.scurr = scurr;
 save(strcat(resultsfolder,'gen',num2str(gen)),'-struct','wellPlateSum');
 
 end
