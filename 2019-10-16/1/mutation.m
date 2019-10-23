@@ -5,10 +5,10 @@ function [fp, b, n, n_genos_curr] =...
 if sum(n(pot_mut_index)) > 0
     N_mut = fastbinorv(n(pot_mut_index),p_mut);
     if sum(N_mut) > 0
-        b_mut = b(pot_mut_index);
-        fp_mut = fp(pot_mut_index);
+        b_mut = b(pot_mut_index, 1);
+        fp_mut = fp(pot_mut_index, 1);
         % remove mutants from their original genotypes
-        n(pot_mut_index) = n(pot_mut_index) - N_mut;
+        n(pot_mut_index) = n(pot_mut_index, 1) - N_mut;
         % remove elements of N_mut, b_mut, and fp_mut with 0 cells.
         [fp_mut,b_mut,N_mut] = removeZeros(fp_mut, b_mut, N_mut);
         
@@ -45,9 +45,9 @@ if sum(n(pot_mut_index)) > 0
         N_back = ones(length(fp_back),1);
         % update fp_manu, L_manu, N_manu, and n_genos_curr
         params = [sp0, sn0, fp_min, fp_max];
-        fp(n_genos_curr + 1 : n_genos_curr + length(fp_back)) = mut_spec_add(params,fp_back);
-        b(n_genos_curr + 1 : n_genos_curr + length(fp_back)) = b_back;
-        n(n_genos_curr + 1 : n_genos_curr + length(fp_back)) = N_back;
+        fp(n_genos_curr + 1 : n_genos_curr + length(fp_back), 1) = mut_spec_add(params,fp_back);
+        b(n_genos_curr + 1 : n_genos_curr + length(fp_back), 1) = b_back;
+        n(n_genos_curr + 1 : n_genos_curr + length(fp_back), 1) = N_back;
         n_genos_curr = n_genos_curr + length(fp_back);
     end
 end
