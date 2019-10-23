@@ -15,9 +15,11 @@ else
     elseif mod(num_wells, S-1) == 0
         S = S-1;
         offspring_num(1:S) = uint32(num_wells/S);
+    elseif abs(S/num_wells-0.75)<1e-6
+        temp_num = [ones(num_wells/2, 1); ones(num_wells/4, 1)*2];
+        offspring_num = [temp_num(randperm(S)); zeros(num_wells/4, 1)];
     else
-        offspring_num(S) = mod(num_wells, S-1);
-        offspring_num(1:S-1) = uint32((num_wells - offspring_num(S)) / (S-1));
+        error('Reproduce strategy cannot be determined!')
     end
     if (B_sorted(1:S) < offspring_num(1:S)*B0)
         error ('not enough cells to generate Newborns')
