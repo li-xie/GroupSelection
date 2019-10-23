@@ -20,11 +20,11 @@ newb_n_mat = mnrnd(winner_n,probs);
 for i = 1 : length(target_inds)
     [nb_fp_temp,nb_b_temp,nb_n_temp] = removeZeros(winner_fp, winner_b, newb_n_mat(:,i));
     temp_n_genos = length(nb_fp_temp);
-    if temp_n_genos < len_fp_init
-        nb_fp_temp = [nb_fp_temp;zeros(len_fp_init-temp_n_genos,1)];
-        nb_b_temp = [nb_b_temp;zeros(len_fp_init-temp_n_genos,1)];
-        nb_n_temp = [nb_n_temp;zeros(len_fp_init-temp_n_genos,1)];
-    end
+%     if temp_n_genos < len_fp_init
+%         nb_fp_temp = [nb_fp_temp;zeros(len_fp_init-temp_n_genos,1)];
+%         nb_b_temp = [nb_b_temp;zeros(len_fp_init-temp_n_genos,1)];
+%         nb_n_temp = [nb_n_temp;zeros(len_fp_init-temp_n_genos,1)];
+%     end
     newb_fp{target_inds(i)} = nb_fp_temp;
     newb_b{target_inds(i)} = nb_b_temp;
     newb_n{target_inds(i)} = nb_n_temp;
