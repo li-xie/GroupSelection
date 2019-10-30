@@ -8,8 +8,8 @@ for c = 1:3
     mu = 10^-3;
     label = num2str(c);
     S = 10;
-    
+    rand_flag = true;
    
     simulateGroupSelectionFn(B0,prop,S,num_cycles,prev_cycles,...
-        num_wells,mu,label)
+        num_wells,mu,label,rand_flag)
 end
