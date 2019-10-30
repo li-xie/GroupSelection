@@ -1,5 +1,5 @@
 function simulateGroupSelectionFn(B0,prop_method,S,num_cycles,prev_cycles,...
-    num_wells,mu,label)
+    num_wells,mu,label,rand_flag)
 
 if isequal(prop_method,@pipette)
     prop_name = 'pipette';
@@ -112,7 +112,11 @@ for c = 1 : num_cycles
         P_final(i) = wellPlate_P{i}(end);
         B_final(i) = wellPlate_B{i}(end);
     end
-    [~, P_ind] = sort(P_final,'descend');
+    if rand_flag == 0
+        [~, P_ind] = sort(P_final,'descend');
+    else
+        P_ind = randperm(num_wells)';
+    end
     B_sorted = B_final(P_ind);
     % reproduce strategy:
     % 0: top-dog
